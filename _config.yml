@@ -26,11 +26,7 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
-<<<<<<< HEAD
 theme: minima
-=======
-theme: jekyll-theme-midnight
->>>>>>> b25b8d167cbb7bb5e4c0f12355039f9815683565
 gems:
   - jekyll-feed
 exclude:
