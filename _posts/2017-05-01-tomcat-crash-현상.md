@@ -3,7 +3,7 @@ layout: post
 title: "Tomcat crash 현상"
 date: 2017-05-01 13:29:51
 image: '/assets/img/'
-description:
+description: "Tomcat died without log"
 tags: 
 - aws
 - tomcat
