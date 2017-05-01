@@ -5,7 +5,10 @@ date: 2017-05-01 13:29:51
 image: '/assets/img/'
 description:
 tags: 
+- aws
+- tomcat
 categories:
+- development
 twitter_text:
 ---
 
