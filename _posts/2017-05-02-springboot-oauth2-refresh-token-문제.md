@@ -69,7 +69,7 @@ jdbc token store를 이용하고 있는 상태라 실제 db를 관찰해보니 6
                 .tokenStore(jdbcTokenStore())
                 .reuseRefreshTokens(false);
 	}
-    
+
 RefreshToken관련 함수를 아무래도 구현해줘야하는것으로 생각된다.
 
 스프링부트 공부를 다시 해야할것같다. 작년에 해둔거를 땜빵해서 쓰는게 여간 힘든게 아니다.
