@@ -31,8 +31,8 @@ jdbc token store를 이용하고 있는 상태라 실제 db를 관찰해보니 6
 # 해결방법
 
 - client가 잘못되었다
-
 는 무슨ㅎㅎ 그런건 없었다. 다음 형태로 잘 보내고 있었다.
+
 
 	@FormUrlEncoded
     @POST("oauth/token")
@@ -40,11 +40,14 @@ jdbc token store를 이용하고 있는 상태라 실제 db를 관찰해보니 6
             @Header("Authorization") String authorization,
             @Field("refresh_token") String refreshToken,
             @Field("grant_type") String grantType);
+
+
 > Header의 경우 base64 인코딩을 해줘야하며, Grant_type은 refresh_token 이다.
 
-- Springboot configure 문제이다
 
+- Springboot configure 문제이다
 이게맞았다. 
+
 
 	@Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
@@ -53,10 +56,17 @@ jdbc token store를 이용하고 있는 상태라 실제 db를 관찰해보니 6
                 .tokenStore(jdbcTokenStore());
     }
 
+
 여기서 한줄이 빠졌다.
 
-	.reuseRefreshTokens(false)
+	@Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints.authenticationManager(authenticationManager)
+                .userDetailsService(userDetailService)
+                .tokenStore(jdbcTokenStore())
+                .reuseRefreshTokens(false);
+	}
+    
+RefreshToken관련 함수를 아무래도 구현해줘야하는것으로 생각된다.
 
-스프링부트 공부를 다시 해야할것같다.
-
-작년에 해둔거 땜빵해서 쓰는게 여간 힘든게 아니다.
+스프링부트 공부를 다시 해야할것같다. 작년에 해둔거를 땜빵해서 쓰는게 여간 힘든게 아니다.
