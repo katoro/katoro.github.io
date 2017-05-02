@@ -28,9 +28,11 @@ refresh_token을 이용하여 갱신하는것은 첫발급이후 60초까지만 
 
 jdbc token store를 이용하고 있는 상태라 실제 db를 관찰해보니 60초이후 인증관련 행위를 진행하면 access, refresh토큰 컬럼이 삭제된다 (oauth_access_token, oauth_refresh_token)
 
+
 # 해결방법
 
 - client가 잘못되었다
+
 는 무슨ㅎㅎ 그런건 없었다. 다음 형태로 잘 보내고 있었다.
 
 
@@ -46,6 +48,7 @@ jdbc token store를 이용하고 있는 상태라 실제 db를 관찰해보니 6
 
 
 - Springboot configure 문제이다
+
 이게맞았다. 
 
 
